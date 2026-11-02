@@ -28,7 +28,7 @@ Work like a designer doing a redline pass, one layer at a time, across the whole
 - **Text on calm space.** The headline sits on a part of the image or layout that was left empty for it, short and specific, with one primary and one secondary action and nothing stacked under them.
 - **Real product, real material.** Previews look like the real app with plausible data, and objects look like real things with weight, light and shadow.
 
-Which visual styles tend to work, and which fail, is in [references/visuals.md](references/visuals.md). Finished examples to learn from are in [references/refs.md](references/refs.md), and code treatments like drawing an image in glyphs are in [references/effects.md](references/effects.md).
+Which visual styles tend to work, and which fail, is in [references/visuals.md](references/visuals.md). Finished examples to learn from are in [references/refs.md](references/refs.md), code treatments like drawing an image in glyphs are in [references/effects.md](references/effects.md), and fluid Apple-style motion, tactile physics and translucent materials are in [references/interactions.md](references/interactions.md).
 
 ## Run it
 
@@ -168,11 +168,13 @@ If the product already has a real brand, like a logo file, a color or a typeface
 ## 9. Motion
 
 - Remove motion that loops for no reason, like `animate-pulse` or `animate-ping` on things that are not live, shimmer on headings, breathing glows, floating elements and parallax.
-- Remove `transition-all`, bouncy springs, `hover:scale` on cards and anything that moves more than a few pixels on hover.
-- Keep motion that explains something. A hover is a quick color or surface change, a press is a tiny scale down, a menu fades and rises a few pixels from where it opens, a changed number tweens.
+- Remove `transition-all`, unmotivated bouncy springs, `hover:scale` on cards and anything that moves more than a few pixels on hover.
+- Keep motion that explains something. A hover is a quick color or surface change, a press is an instant tactile scale down (`scale(0.97)` on pointer-down/`:active`), a menu fades and rises a few pixels from where it opens, a changed number tweens.
+- Prefer critically damped springs (`damping: 1.0`, `response: 0.35s`) over fixed duration transitions for interactive UI. Reserve slight bounce (`damping: ~0.8`) strictly for momentum-driven flicks or throws. See [references/interactions.md](references/interactions.md) for concrete spring parameters and interruptible transitions.
 - Transition color, background, border, opacity and transform, and name them, like `transition-colors` or `transition-[transform,opacity]` in Tailwind, instead of a catch all. Never animate width, height, top, left, margins or large blurs, they stutter on weak devices.
 - One easing curve and a few durations across the screen, from the tokens. Short for feedback, a little longer for things that enter.
 - At most one entrance on load, a short fade and rise for the main content with a small stagger. Not every card flying in from a different side.
+- Support `prefers-reduced-motion` with clean opacity cross-fades.
 
 ## Story video
 
