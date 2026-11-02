@@ -51,7 +51,7 @@ Besides whole scenes, generate single objects to place into the interface, like 
 
 ## Generate it
 
-Look for an image generation tool among the tools you have, for example an MCP server for fal, Replicate, OpenAI images, Higgsfield or a design tool. If there is one:
+Look for an image generation tool or subagent among the capabilities you have, for example the `image-generator` subagent in Antigravity, or an MCP server for fal, Replicate, OpenAI images, Higgsfield or a design tool. If there is one:
 
 - Show the user the prompt, the model and the size, and ask before running, since generation can cost money.
 - Run once. Judge the result against the one sentence and the palette before trying again, and change the prompt rather than rerolling the same one.

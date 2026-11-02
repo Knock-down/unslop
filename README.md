@@ -30,6 +30,12 @@ git clone https://github.com/heydamir/unslop
 mkdir -p ~/.agents/skills && cp -r unslop/skills/unslop ~/.agents/skills/
 ```
 
+For Gemini / Google Antigravity, copy it into your global Gemini skills folder:
+
+```bash
+mkdir -p ~/.gemini/config/skills && cp -r unslop/skills/unslop ~/.gemini/config/skills/
+```
+
 To snapshot a live site or create a story video, install Playwright and its Chromium browser from the project directory where you run the skill:
 
 ```bash
