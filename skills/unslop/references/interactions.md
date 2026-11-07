@@ -166,3 +166,4 @@ Quality software respects platform preferences and motor/vestibular comfort.
 ---
 
 Distilled for unslop from Emil Kowalski's design engineering guides and Apple WWDC design principles.
+
